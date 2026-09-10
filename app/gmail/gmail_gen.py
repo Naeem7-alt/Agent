@@ -23,8 +23,38 @@ Rules:
 - Do not explain anything.
 - Do not invent name, dates, prices, companies, attachments, or facts.
 - Keep the email natural and concise.
+- Include an appropriate greeting and closing
 
 Output exactly:
 
 SUBJECT: <subject>
+BODY:
+<email body>
+
+User command:
+(command)
+"""
+  
+  url = (
+      f"https://geneativelanguage.googleapis.com/"
+      f"v1beta/models/(MODEL):generateContent"
+  )
+
+payload = {
+    "contents": [{"parts":[{"text":prompt}]}],
+    "generationConfig": {
+        "temperature":0.7,
+        "maxOutputTokens":800
+    }
+}
+
+req = urllib.request.Request(
+    url,
+    data=json.dumps(payload).encode(),
+    header={
+        "Content-Type":"application/json"
+        "x-goog-api-key": API_KEY
+    },
+    method="POST"
+)
 
