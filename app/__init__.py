@@ -70,7 +70,7 @@ def create_app():
                 "type": "email",
                 "email_generated": True,
                 "recipient": recipient,
-                "subject": email["subject"]
+                "subject": email["subject"],
                 "body": email["body"],
                 "gmail_url": create_gmail_url(
                     email["subject"],
