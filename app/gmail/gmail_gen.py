@@ -53,7 +53,7 @@ req = urllib.request.Request(
     data=json.dumps(payload).encode(),
     header={
         "Content-Type":"application/json"
-        "x-goog-api-key":API_KEY
+        "x-goog-api-key": API_KEY
     },
     method="POST"
 )
